@@ -31,4 +31,31 @@ def header
 "
 end
 
+def main_menu
+  loop do
+    linespace
+    puts "M > Maunfacturer Menu"
+    puts "B > Body Type Menu"
+    puts "G > Guitar Menu"
+    puts "X > Exit."
+    linespace
+    main_choice = gets.chomp.upcase
+    case(main_choice)
+      when 'M'
+        brand_menu
+      when 'B'
+        body_menu
+      when 'G'
+        guitar_menu
+      when 'X'
+        puts "Have an excellent day!"
+        exit
+      else
+        puts "Invalid! Try again"
+    end
+  end
+end
+
+
 header
+main_menu
