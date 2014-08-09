@@ -19,6 +19,7 @@ def brand_menu
       linespace
       results = Brand.all
       puts "All Manufacturers:"
+      linespace
       results.each do |result|
         puts "Brand: #{result.brand}"
         linespace

@@ -4,7 +4,8 @@ require './lib/brand'
 require './lib/body'
 require './lib/guitar'
 require './lib/brand_menu'
-
+require './lib/body_menu'
+require './lib/guitar_menu'
 
 DB = PG.connect({:dbname => 'guitars'})
 
