@@ -10,10 +10,10 @@ def guitar_menu
     when 'A'
       new_body_id = 0
       new_brand_id = 0
-      new_body_id = get_body
-      guitar_menu if new_body_id == 0
       new_brand_id = get_brand
       guitar_menu if new_brand_id == 0
+      new_body_id = get_body
+      guitar_menu if new_body_id == 0
       new_guitar = Guitar.new({:brand_id => new_brand_id, :body_id => new_body_id})
       new_guitar.save
       linespace
