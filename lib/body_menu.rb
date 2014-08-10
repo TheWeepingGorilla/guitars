@@ -21,8 +21,7 @@ def body_menu
       puts "All Body Types:"
       linespace
       results.each do |result|
-        puts "Body: #{result.body}"
-        linespace
+        puts "#{result.body}"
       end
       body_menu
     when 'D'
@@ -30,13 +29,18 @@ def body_menu
       puts "Body Type to remove:"
       body_to_remove = gets.chomp
       results = Body.all
+      not_found = true
       results.each do |result|
         if result.body == body_to_remove
+          linespace
           puts "Body #{result.body} has been removed."
           result.delete
-        else
-          puts "Result not found.  Did you type the name correctly?"
+          not_found = false
         end
+      end
+      if (not_found)
+        linespace
+        puts "** Body Type not found! (L will list all body types)."
       end
       body_menu
     when 'R'

@@ -21,8 +21,7 @@ def brand_menu
       puts "All Manufacturers:"
       linespace
       results.each do |result|
-        puts "Brand: #{result.brand}"
-        linespace
+        puts "#{result.brand}"
       end
       brand_menu
     when 'D'
@@ -30,13 +29,18 @@ def brand_menu
       puts "Manufacturer to remove:"
       brand_to_remove = gets.chomp
       results = Brand.all
+      not_found = true
       results.each do |result|
         if result.brand == brand_to_remove
-          puts "Brand #{result.brand} has been removed."
+          linespace
+          puts "Manufacturer #{result.brand} has been removed."
           result.delete
-        else
-          puts "Result not found.  Did you type the name correctly?"
+          not_found = false
         end
+      end
+      if (not_found)
+        linespace
+        puts "** Manufacturer not found! (L will list all manufacturers)."
       end
       brand_menu
     when 'R'
